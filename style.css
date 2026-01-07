@@ -1,0 +1,62 @@
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', -apple-system, sans-serif;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* 2. THE HEADER & SEARCH */
+        header {
+            padding: 40px 20px;
+            background: linear-gradient(to bottom, #2a2a2a, var(--bg-color));
+            text-align: center;
+        }
+
+        .search-box {
+            width: 100%;
+            max-width: 500px;
+            padding: 12px 20px;
+            border-radius: 50px;
+            border: none;
+            background: white;
+            color: black;
+            font-size: 1rem;
+            margin-top: 20px;
+        }
+
+        .grid-container {
+            display: grid;
+            /* Creates as many columns as fit, each at least 200px wide */
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;}
+
+        /* 4. THE CATALOG ITEM (CARDS) */
+        .catalog-item {
+            background: var(--card-bg);
+            padding: 16px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+  pure-json-grid {
+  /* Set a monospaced font so columns align perfectly like a grid */
+  font-family: 'Courier New', Courier, monospace;
+  white-space: pre-wrap;
+  background: #1e1e1e;
+  color: #00ff41; /* Matrix/Terminal style */
+  padding: 20px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+/* Pull the JSON string out of the attribute and display it */
+.pure-json-grid::before {
+  content: attr(data-json);
+}
