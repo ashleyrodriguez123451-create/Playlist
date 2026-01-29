@@ -17,6 +17,7 @@
 console.log("js console");
 let data;
 let grid = document.querySelector(".grid");
+let Form = document.querySelector("form");
 
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function (){
@@ -47,7 +48,7 @@ xhttp.onreadystatechange = function (){
  xhttp.open("GET", "music.json", true);
 xhttp.send();
 
-FormData.addEventListener("submit", function(e){
+Form.addEventListener("submit", function(e){
     e.preventDefault();
     let title = titleInput.value;
     let artist = artistInput.value;
@@ -62,5 +63,5 @@ FormData.addEventListener("submit", function(e){
         "imgSrc": imgSrc
     };
     submitData(newSong);
-    FormData.reset();
+    Form.reset();
 });
