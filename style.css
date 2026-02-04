@@ -1,10 +1,11 @@
 
         body {
-            background-color: var(--bg-color);
+            background-color: 	#fecaca;
             color: var(--text-main);
             font-family: 'Inter', -apple-system, sans-serif;
             margin: 0;
             line-height: 1.5;
+
         }
 
         /* 2. THE HEADER & SEARCH */
@@ -12,6 +13,7 @@
             padding: 40px 20px;
             background: linear-gradient(to bottom, #2a2a2a, var(--bg-color));
             text-align: center;
+            color: #6d0d0d;
         }
 
         .search-box {
@@ -25,38 +27,33 @@
             font-size: 1rem;
             margin-top: 20px;
         }
-
-        .grid-container {
-            display: grid;
-            /* Creates as many columns as fit, each at least 200px wide */
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;}
-
-        /* 4. THE CATALOG ITEM (CARDS) */
-        .catalog-item {
-            background: var(--card-bg);
-            padding: 16px;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-  pure-json-grid {
-  /* Set a monospaced font so columns align perfectly like a grid */
-  font-family: 'Courier New', Courier, monospace;
-  white-space: pre-wrap;
-  background: #1e1e1e;
-  color: #00ff41; /* Matrix/Terminal style */
-  padding: 20px;
-  border-radius: 8px;
-  display: inline-block;
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 15px;
 }
 
-/* Pull the JSON string out of the attribute and display it */
-.pure-json-grid::before {
-  content: attr(data-json);
+.card {
+    background-color:#ffd6d0;
+    margin-left: 15%;
+    height: 220px;
+    width: 380px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 100;
+    border: 3px black solid;
+    border: 2px solid 	#ffd6d0; /* Neon green color */
+  border-radius: 10px;
+  box-shadow: 0 0 5px  #6d0d0d,  /* Inner glow */
+              0 0 10px	#ffd6d0,  /* Medium glow */
+              0 0 20px #b10303;  /* Outer glow */
 }
+
+
+#textData {
+    text-align: center;
+   
+}
+     
+
+  

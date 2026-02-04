@@ -14,54 +14,133 @@
 // xhttp.open("GET","music.json",true);
 // xhttp.send();
 
-console.log("js console");
-let data;
-let grid = document.querySelector(".grid");
-let Form = document.querySelector("form");
+// console.log("js console");
+// let data;
+// let grid = document.querySelector(".grid");
+// let Form = document.querySelector("form");
 
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function (){
- if (xhttp.readyState === 4 && xhttp.status === 200){
-         data = JSON.parse(xhttp.responseText);
-         console.log(data);
-         data.forEach(function(song){
-            let card = document.createElement("div");
-            card.classList.add("card");
+// var xhttp = new XMLHttpRequest();
+// xhttp.onreadystatechange = function (){
+//  if (xhttp.readyState === 4 && xhttp.status === 200){
+//          data = JSON.parse(xhttp.responseText);
+//          console.log(data);
+//          data.forEach(function(song){
+//             let card = document.createElement("div");
+//             card.classList.add("card");
 
-            let textData = 
-            "<div class='song-title'>"+ song.title + "</div>" + 
-            "<span>"+
-            "Artist: " + song.artist + "<br>" +
-            "Genre: " + song.genre + "<br>" +
-            "Image Source: " + song.imgSrc + "<br>" +
-            "</span>";
+//             let textData = 
+//             "<div class='song-title'>"+ song.title + "</div>" + 
+//             "<span>"+
+//             "Artist: " + song.artist + "<br>" +
+//             "Genre: " + song.genre + "<br>" +
+//             "Image Source: " + song.imgSrc + "<br>" +
+//             "</span>";
 
-        card.innerHTML = textData;
-        if (song.imgSrc){
-            card.style.backgroundImage = "url("+ song.imgSrc +")";
-        }
-        grid.appendChild(card);
+//         card.innerHTML = textData;
+//         if (song.imgSrc){
+//             card.style.backgroundImage = "url("+ song.imgSrc +")";
+//         }
+//         grid.appendChild(card);
 
-        });
+//         });
+//     }
+// };
+//  xhttp.open("GET", "music.json", true);
+// xhttp.send();
+
+// Form.addEventListener("submit", function(e){
+//     e.preventDefault();
+//     let title = titleInput.value;
+//     let artist = artistInput.value;
+//     let genre = genreInput.value;
+//     let imgSrc = imgSrcInput.value;
+
+//     let newSong = {
+//         "id": getNextId(),
+//         "title": title,
+//         "artist": artist,
+//         "genre": genre,
+//         "imgSrc": imgSrc
+//     };
+//     submitData(newSong);
+//     Form.reset();
+// });
+console.log("js started");
+
+var data;
+var grid = document.querySelector(".grid-container");
+
+// LOAD DATA (localStorage first, otherwise XHR)
+if (localStorage.getItem("datalist")) {
+  data = JSON.parse(localStorage.getItem("datalist"));
+  console.log("Loaded from localStorage");
+  if (grid) {
+    makeCards();
+  }
+} else {
+  var xhttp = new XMLHttpRequest();
+
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      data = JSON.parse(this.responseText);
+      console.log("Loaded from music.json");
+
+      localStorage.setItem("datalist", JSON.stringify(data));
+      console.log("Saved starter data to localStorage");
+
+      if (grid) {
+        makeCards();
+      }
     }
-};
- xhttp.open("GET", "music.json", true);
-xhttp.send();
+  };
 
-Form.addEventListener("submit", function(e){
-    e.preventDefault();
-    let title = titleInput.value;
-    let artist = artistInput.value;
-    let genre = genreInput.value;
-    let imgSrc = imgSrcInput.value;
+  xhttp.open("GET", "music.json", true);
+  xhttp.send();
+}
 
-    let newSong = {
-        "id": getNextId(),
-        "title": title,
-        "artist": artist,
-        "genre": genre,
-        "imgSrc": imgSrc
-    };
-    submitData(newSong);
-    Form.reset();
+// RENDER CARDS
+function makeCards() {
+  grid.innerHTML = "";
+
+  data.forEach(function (song) {
+    let card = document.createElement("div");
+    card.classList.add("card");
+
+    let textData =
+      "<div class='song-title'>" + song.title + "</div>" +
+      "<div>Genre: " + song.genre + "</div>" +
+      "<div>Artist: " + song.artist + "</div>";
+
+    card.innerHTML = textData;
+    grid.appendChild(card);
+  });
+
+  console.log("cards refreshed");
+}
+var form = document.querySelector("form");
+var titleInput = document.querySelector("#title-input");
+var genreInput = document.querySelector("#genre-input");
+var artistInput = document.querySelector("#artist-input");
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  var newObj = {
+    title: titleInput.value,
+    genre: genreInput.value,
+    artist: artistInput.value
+  };
+
+  data.push(newObj);
+  localStorage.setItem("datalist", JSON.stringify(data));
+  console.log("Saved new item to localStorage");
+
+  // Only render if grid exists on this page
+  if (document.querySelector(".grid-container")) {
+    makeCards();
+  }
+
+  form.reset();
 });
+
+
