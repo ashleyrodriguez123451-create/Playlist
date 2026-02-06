@@ -48,6 +48,23 @@
               0 0 10px	#ffd6d0,  /* Medium glow */
               0 0 20px #b10303;  /* Outer glow */
 }
+form{
+     text-align: center;
+     margin-top: 250px;
+     margin-left: 500px;
+     margin-right: 500px;
+     border: 2px solid 	#ffd6d0; /* Neon green color */
+  border-radius: 10px;
+  box-shadow: 0 0 5px  #6d0d0d,  /* Inner glow */
+              0 0 10px	#ffd6d0,  /* Medium glow */
+              0 0 20px #b10303;  /* Outer glow */
+}
+.side-image {
+  float: right; /* or float: left; */
+  margin-left: 20px; /* Adds space between the image and the text */
+  width: 200px; /* Adjust size as needed */
+  display: block;
+}
 
 
 #textData {

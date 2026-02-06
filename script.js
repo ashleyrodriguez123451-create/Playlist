@@ -109,7 +109,9 @@ function makeCards() {
     let textData =
       "<div class='song-title'>" + song.title + "</div>" +
       "<div>Genre: " + song.genre + "</div>" +
-      "<div>Artist: " + song.artist + "</div>";
+      "<div>Artist: " + song.artist + "</div>" +
+      "<div>"+song.image +"</div>";
+
 
     card.innerHTML = textData;
     grid.appendChild(card);
@@ -118,9 +120,32 @@ function makeCards() {
   console.log("cards refreshed");
 }
 var form = document.querySelector("form");
-var titleInput = document.querySelector("#title-input");
-var genreInput = document.querySelector("#genre-input");
-var artistInput = document.querySelector("#artist-input");
+var titleInput = document.querySelector("#title");
+var genreInput = document.querySelector("#genre");
+var artistInput = document.querySelector("#artist");
+fetch('images.json')
+    .then(response => response.json())
+    .then(data => {
+        // Loop through the array of image objects
+        data.forEach(imageObj => {
+            // Get the target div using its ID
+            const targetDiv = document.getElementById(imageObj.id);
+
+            if (targetDiv) {
+                // Create a new image element
+                const imgElement = document.createElement('img');
+                
+                // Set the src and alt attributes from the JSON data
+                imgElement.src = imageObj.imageUrl;
+                imgElement.alt = imageObj.altText;
+
+                // Append the image element to the div
+                targetDiv.appendChild(imgElement);
+            }
+        });
+    })
+    .catch(error => console.error('Error fetching images:', error));
+
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -129,6 +154,7 @@ form.addEventListener("submit", function (e) {
     title: titleInput.value,
     genre: genreInput.value,
     artist: artistInput.value
+    
   };
 
   data.push(newObj);

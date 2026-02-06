@@ -3,28 +3,25 @@
     "title": "Half Time",
     "genre": "R&B",
     "artist": "Amy Winehouse",
-    "image": "HalfTime.png",
-    "id": "1"
+    "imageUrl":"Covers/HalfTime.png",
+    "id": "div1"
   },
   {
     "title": "Loner",
     "genre": "Soul",
     "artist": "Kali Uchis",
-    "image": "Loner.png",
     "id": "2"
   },
   {
     "title": "What Kind of Love",
     "genre": "Soul",
     "artist": "Childish Gambino",
-    "image": "https://samplesongs.netlify.app/album-arts/faded.jpg",
     "id": "3"
   },
   {
     "title": "Hate Me",
     "genre": "R&B",
     "artist": "Ellie Goulding",
-    "image": "HateMe.png",
     "id": "4"
   },
   {
@@ -37,91 +34,101 @@
   {
     "title": "Without Me",
     "artist": "Halsey",
-    "image": "",
     "id": "6"
   },
   {
-    "title": "SKELETONS",
+   "title": "SKELETONS",
     "genre": "Indie",
     "artist": "Travis Scott",
-    "image": "",
     "id":"7"
   },
   {
     "title": "134340",
     "genre": "K-pop",
     "artist":"BTS",
-    "image":"",
     "id":"8"
   },
   {
     "title": "Roses",
     "genre": "R&B",
     "artist":"Jaehyun",
-    "image":"",
     "id":"9"
   },
   {
     "title": "Tiramisu",
     "genre": "R&B",
     "artist":"Don Toliver",
-    "image":"",
     "id":"10"
   },
   {
     "title": "COFFEE BEAN",
     "genre": "Rap",
     "artist":"Travis Scott",
-    "image":"astroworld.jpeg",
     "id":"11"
   },
   {
     "title": "N Side",
     "genre": "R&B",
     "artist":"Steve Lacy",
-    "image":"",
     "id":"12"
   },
   {
     "title": "I Won't Cry Anymore",
     "genre": "Soul",
     "artist":"Marvin Gaye",
-    "image":"",
     "id":"13"
   },
   {
     "title": "Faucet Failure",
     "genre": "Trap",
     "artist":"Ski Mask The Slump God",
-    "image":"",
     "id":"14"
   },
   {
     "title": "Catch Me Outside",
     "genre": "Trap",
     "artist":"Ski Mask The Slump God",
-    "image":"",
     "id":"15"
   },
   {
     "title": "UKA UKA",
     "genre": "Punk Pop",
     "artist":"Trippie Redd",
-    "image":"",
     "id":"16"
   },
 {
     "title": "Missed Calls",
     "genre": "Hip Pop",
     "artist":"Mac Miller",
-    "image":"",
+    "image":"MissedCalls.jpg",
     "id":"17" 
 },
 { 
     "title": "Losing You",
     "genre": "R&B",
     "artist":"Solange",
-    "image":"",
+    "image":"LosingYou.jpg",
     "id":"18"
+},
+{
+    "title": "Jodie",
+    "genre": "Soul",
+    "artist":"SZA",
+    "image":"CtrlSZA.webp",
+    "id":"19"
+},
+{
+  "title": "Love Lost",
+    "genre": "Rap",
+    "artist":"Mac Miller",
+    "image":"",
+    "id":"20"
+},
+{
+  "title": "Sitting On Top of the World",
+    "genre": "Rap",
+    "artist":"Burna Baby",
+    "image":"",
+    "id":"21"
 }
 ]
